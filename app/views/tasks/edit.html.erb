@@ -1,0 +1,10 @@
+<h1><%= @task.id %>の編集ページ</h1>
+
+<%= form_for(@task) do |f| %>
+  <%= f.label :content, 'タスク' %>
+  <%= f.text_field :content %>
+  
+  <%= f.submit %>
+<% end %>
+
+<%= link_to '一覧に戻る', tasks_path %>
