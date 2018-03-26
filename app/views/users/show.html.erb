@@ -5,9 +5,14 @@
         <h3 class="panel-title"><%= @user.name %></h3>
       </div>
     </div>
+    <% if logged_in? %>
     <ul class="nav nav-tabs nav-justified">
       <li><a href="#">Tasks</a></li>
+      <%= render 'tasks/tasks', tasks: @tasks %>
     </ul>
-  <div>
+    <% else %>
+  </div>
+    <%= render 'sessions/login' %>
+    <% end %>
 
 </div>

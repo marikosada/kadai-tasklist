@@ -1,18 +1,10 @@
-<% if logged_in? %>
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <h1>タスクリスト</h1>
-    <table class="table table-striped">
-      <% @tasks.each do |task| %>
-      <tr>
-        <td><%= link_to task.id, task %> <%= task.content %> : <%= task.status %></td>
-      </tr>
-      <% end %>
-    </table>
-    <p><%= link_to 'タスク新規作成', new_task_path, class: "btn btn-primary" %></p>
+  <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+    <h1><%= @user.name %>のタスクリスト</h1>
+    <%= render 'tasks', tasks: @tasks %>
     
-    <% else %>
-    <%= render 'sessions/login' %>
+    <% if current_user == @task.user %>
+    <p><%= link_to 'タスク新規作成', new_task_path, class: "btn btn-primary" %></p>
+    <% end %>
   </div>
-</div> 
-<%end %>
+  </div>

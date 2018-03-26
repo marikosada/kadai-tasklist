@@ -1,4 +1,11 @@
-<h1 class="text-center">タスク新規作成ページ</h1>
+    <% if logged_in? %>
+    <h1 class="text-center"><%= @user.name %>のタスク新規作成ページ</h1>
 
-<%= render 'form', task: @task %>
+    <%= render 'form', task: @task %>
+    <% else %>
+
+    <%= render 'sessions/login' %>
+    <% end %>
+  </div>
+
 
